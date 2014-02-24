@@ -30,7 +30,7 @@
 
 		<!-- Jackson -->
 		<jackson.version>2.2.3</jackson.version>
-		
+
 		<!-- Fastjson -->
 		<fastjson.version>1.1.36</fastjson.version>
 	</properties>
@@ -111,7 +111,7 @@
 			<artifactId>fastjson</artifactId>
 			<version>${fastjson.version}</version>
 		</dependency>
-		
+
 	</dependencies>
 	<build>
 		<finalName>template.springmvc</finalName>

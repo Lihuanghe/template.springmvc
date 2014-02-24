@@ -7,28 +7,17 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 
 	<display-name>springmvc</display-name>
 
-	<!-- The definition of the Root Spring Container shared by all Servlets and Filters -->
+	<!-- The definition of the Root Spring Container shared by all Servlets 
+		and Filters -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>classpath:spring/application-*.xml</param-value>
 	</context-param>
-	
+
 	<!-- Creates the Spring Container shared by all Servlets and Filters -->
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
-
-	<!-- - Location of the XML file that defines the root application context. 
-		- Applied by ContextLoaderListener. -->
-	<context-param>
-		<param-name>contextConfigLocation</param-name>
-		<param-value>classpath:spring/application-config.xml</param-value>
-	</context-param>
-
-	<listener>
-		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-	</listener>
-
 
 	<!-- - Servlet that dispatches request to registered handlers (Controller 
 		implementations). -->
