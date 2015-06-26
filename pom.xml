@@ -10,7 +10,7 @@
 
 	<properties>
 		<!-- Generic properties -->
-		<java.version>1.6</java.version>
+		<java.version>1.7</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
@@ -34,7 +34,27 @@
 		<!-- Fastjson -->
 		<fastjson.version>1.1.36</fastjson.version>
 	</properties>
-
+  <profiles>
+		<profile>
+			<id>beta</id>
+			<properties>
+				<env.resources>src/main/env-resources/beta</env.resources>
+				<package.environment>beta</package.environment>
+			</properties>
+		</profile>
+		<profile>
+			<id>dev</id>
+			<properties>
+				<env.resources>src/main/env-resources/dev</env.resources>
+			</properties>
+		</profile>
+		<profile>
+			<id>prod</id>
+			<properties>
+				<env.resources>src/main/env-resources/prod</env.resources>
+			</properties>
+		</profile>
+        </profiles>
 	<dependencies>
 		<!-- Spring Framework -->
 		<dependency>
@@ -115,16 +135,15 @@
 	</dependencies>
 	<build>
 		<finalName>template.springmvc</finalName>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.tomcat.maven</groupId>
-				<artifactId>tomcat7-maven-plugin</artifactId>
-				<version>2.1</version>
-				<configuration>
-					<path>/springmvc</path>
-					<port>9527</port>
-				</configuration>
-			</plugin>
-		</plugins>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>false</filtering>
+			</resource>
+			<resource>
+				<directory>${env.resources}</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
 	</build>
 </project>
